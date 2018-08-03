@@ -34,6 +34,7 @@ height = float(input('请输入你的身高(M)：'))
 bmi(weight,height)
 '''
 
+#closesure闭包函数
 def outer(a):
 #    a += 1
     def inner(b):
