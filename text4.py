@@ -33,6 +33,22 @@ weight = float(input('请输入你的体重(KG)：'))
 height = float(input('请输入你的身高(M)：'))
 bmi(weight,height)
 '''
+
+def outer(a):
+#    a += 1
+    def inner(b):
+        nonlocal a
+        a += 1
+        return a+b
+    return inner
+demo1 = outer(1)
+print(demo1(10))
+print(demo1(10))
+print(demo1(10))
+print(demo1(10))
+print(demo1(10))
+
+
 classmates = ['李狗蛋','王二柱','范冰冰']
 for name in classmates:
     print(name)
