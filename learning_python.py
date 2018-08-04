@@ -444,11 +444,17 @@ print(next(f))
 print(next(f))
 #print(next(f))
 
+print('.......................')
 
+g = (x for x in range(1,11))
+def i_g(n):
+    for x in g:
+        if n > 0:
+            print(x)
+            n = n - 1
+    return 'end'
 
-
-
-
+i_g(3)
 
 
 
