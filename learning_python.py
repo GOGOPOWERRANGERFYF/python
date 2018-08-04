@@ -456,7 +456,28 @@ def i_g(n):
 
 i_g(3)
 
+#可作用于for循环的是可迭代iterable对象
+#可作用于for循环,还可以被next()调用返回一个值,直到StopIteration错误提示的,称为iterator迭代器
 
+from collections import Iterable
+#从collections模块导入Iterable类型 可迭代类型
+
+print(isinstance((),Iterable)) #判断tuple元组是否is a instance of(一个...的实例)可迭代对象iterable
+print(isinstance([],Iterable)) #list列表
+print(isinstance({},Iterable)) #dict字典(dictionary)
+print(isinstance('',Iterable)) #str字符串(string)
+print(isinstance((x for x in range(1,11)),Iterable)) #list comprehensions列表推导式
+
+
+from collections import Iterator
+#从collections模块导入Iterator类型 迭代器类型
+
+print(isinstance((),Iterator)) #同上,只是变成判断Iterator迭代器对象类型
+print(isinstance([],Iterator))
+print(isinstance({},Iterator))
+print(isinstance('',Iterator))
+#哈哈哈哈哈哈,上面四个都不能被next()函数调用
+print(isinstance((x for x in range(10)),Iterator))
 
 
 
