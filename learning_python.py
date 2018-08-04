@@ -464,22 +464,38 @@ from collections import Iterable
 
 print(isinstance((),Iterable)) #判断tuple元组是否is a instance of(一个...的实例)可迭代对象iterable
 print(isinstance([],Iterable)) #list列表
-print(isinstance({},Iterable)) #dict字典(dictionary)
+print(isinstance({'A':1,'B':2},Iterable)) #dict字典(dictionary)
+print(isinstance({'A','B'},Iterable)) #set
 print(isinstance('',Iterable)) #str字符串(string)
-print(isinstance((x for x in range(1,11)),Iterable)) #list comprehensions列表推导式
+print(isinstance([lc for lc in range(1,11)],Iterable)) #list comprehensions列表推导式
+print(isinstance((g for g in range(1,11)),Iterable)) #generator生成器,与列表推导式的区别是[]和()
 
-
+print('..........华丽的分割线..........')
 from collections import Iterator
 #从collections模块导入Iterator类型 迭代器类型
 
 print(isinstance((),Iterator)) #同上,只是变成判断Iterator迭代器对象类型
 print(isinstance([],Iterator))
-print(isinstance({},Iterator))
+print(isinstance({'A':1,'B':2},Iterator))
+print(isinstance({'A','B'},Iterator))
 print(isinstance('',Iterator))
-#哈哈哈哈哈哈,上面四个都不能被next()函数调用
-print(isinstance((x for x in range(10)),Iterator))
+print(isinstance([lc for lc in range(10)],Iterator))
+#哈哈哈哈哈哈,上面六个都不能被next()函数调用
+print(isinstance((g for g in range(1,11)),Iterator)) #只有generator能被next()函数调用
+
+print('..........华丽的分割线..........')
+#把tuple元组,list列表,dict字典,set,str字符串,list comprehensions等iterable对象
+#变成iterator迭代器,可以使用iter()函数
+
+print(isinstance(iter(()),Iterator)) #同上,只是变成判断Iterator迭代器对象类型
+print(isinstance(iter([]),Iterator))
+print(isinstance(iter({'A':1,'B':2}),Iterator))
+print(isinstance(iter({'A','B'}),Iterator))
+print(isinstance(iter(''),Iterator))
+print(isinstance(iter([lc for lc in range(10)]),Iterator))
 
 
+#iterator对象是一个数据流
 
 
 
