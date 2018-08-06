@@ -507,6 +507,20 @@ f = abs
 
 print(add(x,y,f))
 
+#map(mapped映射),reduce归约(减少,缩小,使还原)
+#map(),reduce()是python内置的高阶函数
+
+def f(x):
+    return x * x
+#map()函数接收两个参数,一个是函数,一个是Iterable
+#map()函数将传入的函数依次作用到序列的每个元素,结果返回Iterator
+print(map(f,range(1,11)))
+r = map(f,range(1,11))
+print(next(r))
+print(next(r))
+
+
+
 
 
 
