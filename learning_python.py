@@ -494,6 +494,19 @@ print(isinstance(iter([lc for lc in range(10)]),Iterator))
 
 #iterator对象是一个数据流
 
+#higher-order function(高阶函数)
+#变量可以指向函数,例如：f = abs,函数的参数能接受变量function(x,y)
+#那么一个函数可以接收另一个函数作为参数,这种函数称之为高阶函数.
+#abs(-120)是函数调用,abs是函数本身
+print('......高阶函数higher-order funciton......')
+def add(x,y,f):
+    return f(x) + f(y)
+x = 15
+y = -10
+f = abs
+
+print(add(x,y,f))
+
 
 
 
