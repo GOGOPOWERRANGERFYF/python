@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55d6cf79-0cc0-401c-8753-7c48f588a936" name="Default Changelist" comment="" />
+    <list default="true" id="55d6cf79-0cc0-401c-8753-7c48f588a936" name="Default Changelist" comment="chang">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learning_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/learning_python.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,13 +15,13 @@
     <session id="1413409550">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.23" value="2" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="2" />
@@ -28,35 +31,35 @@
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="2" />
-          <entry key="py" value="5" />
+          <entry key="py" value="7" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="2" />
-          <entry key="Python" value="5" />
+          <entry key="Python" value="7" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="16" />
-          <entry key="py" value="4103" />
-          <entry key="txt" value="5" />
+          <entry key="py" value="4252" />
+          <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="16" />
-          <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="4103" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Python" value="4252" />
         </counts>
       </usages-collector>
     </session>
@@ -66,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/learning_python.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="528" selection-start-line="528" selection-end-line="528" />
+            <state relative-caret-position="601">
+              <caret line="519" column="13" selection-start-line="519" selection-start-column="13" selection-end-line="519" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -231,10 +234,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="3" width="1914" height="1028" extended-state="6" />
+    <frame x="0" y="0" width="1152" height="922" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15319599" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25464192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -306,8 +309,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/learning_python.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="528" selection-start-line="528" selection-end-line="528" />
+        <state relative-caret-position="601">
+          <caret line="519" column="13" selection-start-line="519" selection-start-column="13" selection-end-line="519" selection-end-column="13" />
         </state>
       </provider>
     </entry>
