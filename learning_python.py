@@ -8,8 +8,6 @@ else:
 
 def fyf():
    """@fyf 我是文档，哈哈哈哈哈哈"""
-'''
-'''
 #定义计算bmi的函数
 def bmi(weight,height):
     bmi_temple = weight/height**2
@@ -520,6 +518,11 @@ print(next(r))
 print(next(r))
 print(next(r))
 print(next(r))
+
+
+
+
+
 
 
 
