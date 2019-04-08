@@ -173,6 +173,7 @@ employee('郭德纲',30,'火星')      #employee(city='长沙','李雷',22)  错
 employee('光头强',40,province='黑龙江',city='沈阳')
 #前两个位置参数须按顺序提供,后两个默认参数可以不按顺序提供,但要把参数名写上
 
+#L = [ ]  列表本身是个可变对象，如果做默认参数的话有个问题，改变后默认参数也改变了
 
 def add_list_end(l=None):
     if l is not None:
