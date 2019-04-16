@@ -1,5 +1,3 @@
-exit_fyf = False
-a = ''
 i = input('input digit:')
 
 while i != 'exit':
