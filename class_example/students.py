@@ -5,3 +5,5 @@ student1 = Students('fyf',18,100) #这个类就像一个模板它定义了一个
 
 print(student1)
 print(student1.name)
+print(student1.age)
+print(student1.score)
