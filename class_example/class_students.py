@@ -14,7 +14,8 @@ class Students:
     def level(self):
         if self.score >= 90:
             print('优等生')
+        elif self.score >= 60:
+            print('及格万岁！')
         else:
-            print('上课玩手机！?')
-
+            print('不读书，上课玩手机！')
             
