@@ -6,7 +6,7 @@ object oriented progamming 面向对象编程，是一种程序设计思想
 # int   float   string  boolean这些数据类型并不能表示一个学生，因此自定义一个学生数据类型，也就类class
 class Students:
     #初始化函数function
-    def __init__(self,name,age,score):   #self参数传入对象名，name，age，score也在实例化时传入
+    def __init__(self,name,age,score,test):   #self参数传入对象名，name，age，score也在实例化时传入
         self.name = name              #比如student1.name = name = 'fyf'
         self.age = age
         self.score = score
