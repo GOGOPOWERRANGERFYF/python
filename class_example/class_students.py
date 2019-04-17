@@ -11,3 +11,10 @@ class Students:
         self.age = age
         self.score = score
 
+    def level(self):
+        if self.score >= 90:
+            print('优等生')
+        else:
+            print('上课玩手机！?')
+
+            
