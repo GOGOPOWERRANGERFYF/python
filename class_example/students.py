@@ -7,4 +7,5 @@ student2 = Students('fxf',20,95)
 print(student1)
 print(student1.name)
 print(student1.age)
-print(student1.score)
+print(student1.score)    
+
