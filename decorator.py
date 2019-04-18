@@ -66,8 +66,6 @@ print(make_cake())
 #
 #make_cake()
 
-
-
 def cake_name(x): #装饰器外再套一层函数,x参数可以传入闭包函数内
     def add_candle(f):  
         def insert_candle():
@@ -82,8 +80,6 @@ def make_cake(x):
     return '被装饰函数接收到了带参数的装饰器的传入参数：%s' %x
 
 make_cake()
-
-
 
 
 

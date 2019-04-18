@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/article/<id>')       #url传参数，URL的一部分标记为<variable_name>就可以在
+@app.route('/article/<id>')       #带参数的装饰器，URL的一部分标记为<variable_name>就可以在
 def url_id(id):                   #URL中添加变量,标记的部分会作为关键字参数传递给函数
     return '这就是你的参数： %s' %id
 
