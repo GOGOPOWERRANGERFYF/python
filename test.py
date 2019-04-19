@@ -12,12 +12,21 @@
 #
 #input_digit_game()
 
-def outter(msg='haha'):
-    def inner(x):
-        print(msg + x)
-    return inner
-
-f = outter()
-print(f)
+#def outter(msg='haha'):
+#    def inner(x):
+#        print(msg + x)
+#    return inner
+#
+#f = outter()
+#print(f)
 #print(f.__name__)
 #print(f('hehe'))
+
+class person(object):
+    name = 'fyf'
+    age = 99
+
+p1 = person
+print(p1.age)
+print(p1.__name__)
+
