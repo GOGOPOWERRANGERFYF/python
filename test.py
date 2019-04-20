@@ -22,11 +22,34 @@
 #print(f.__name__)
 #print(f('hehe'))
 
-class person(object):
-    name = 'fyf'
-    age = 99
+#class person(object):
+#    name = 'fyf'
+#    age = 99
+#
+#p1 = person
+#print(p1.age)
+#print(p1.__name__)
 
-p1 = person
-print(p1.age)
-print(p1.__name__)
+dict = {
+    'id':123456789,
+    'name':'Li Lei',
+    'age': 16
+}
+
+def person(**dict):
+    return dict
+
+temp1 = person(dict=dict)
+print(temp1)
+print(temp1['dict'])
+
+temp2 = person(**dict)
+print(temp2['id'])
+
+
+#if True:
+#    print(person(**dict))   #关键字参数，传入0或N个 含参数名的参数（例如：key1='xxx'，key2=18）,函数内部自动封装成一个字典
+#    print(person(dict=dict))#运行可看到两者的区别
+#else:
+#    print('nothing')
 
