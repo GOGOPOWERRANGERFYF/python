@@ -42,10 +42,11 @@ def person(**dict):
 temp1 = person(dict=dict)
 print(temp1)
 print(temp1['dict'])
-
-temp2 = person(**dict)
+print('>>>>>>>>>>>>>>>>>>>')
+temp2 = temp1['dict']
 print(temp2['id'])
-
+#temp2 = person(**dict)
+#print(temp2['id'])
 
 #if True:
 #    print(person(**dict))   #关键字参数，传入0或N个 含参数名的参数（例如：key1='xxx'，key2=18）,函数内部自动封装成一个字典
