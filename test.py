@@ -44,6 +44,7 @@ print(temp1)
 print(temp1['dict'])
 print('>>>>>>>>>>>>>>>>>>>')
 temp2 = temp1['dict']
+print(temp2)
 print(temp2['id'])
 #temp2 = person(**dict)
 #print(temp2['id'])
