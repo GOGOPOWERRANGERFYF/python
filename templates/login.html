@@ -26,7 +26,13 @@
         <label>密码：</label><input type = "password" name="password1"><br>
         <label>再次输入密码：</label><input type = "password" name="password2"><br>
         <label>邮箱：</label><input type = "email" name="email"><br>
-        <input type="submit" value="注册">
+        <input type="submit" value="注册"><br>
+
+        {% for message in get_flashed_messages() %}
+        {{message}}
+        {% endfor %}
+
+
     </form>
     
 </body>

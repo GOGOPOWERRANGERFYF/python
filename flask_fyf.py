@@ -1,6 +1,7 @@
-from flask import Flask,render_template,url_for,redirect,request
+from flask import Flask,render_template,url_for,redirect,request,flash
 
 app = Flask(__name__)
+app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
 
 @app.route('/')  #带参数的装饰器
 def index():
@@ -42,8 +43,13 @@ def web_login():
         print(password2)
         print(email)
         if not all([username,password1,password2,email]):   #built-in内置函数，call()，判断可迭代对象iterable，包含 0，空   ' '，None，False时返回False，其余为True
-            return '输入不完整'
-        return '注册成功'
+            #return '输入不完整'
+            flash('输入不完整')
+            return render_template('login.html')
+        #return '注册成功'
+        else:
+            flash('注册成功')
+            return render_template('login.html')
     else:                                       #request.method == 'GET'
         return render_template('login.html')
     
