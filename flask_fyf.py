@@ -22,7 +22,7 @@ def index():
 
 @app.route('/article/<id>')       #带参数的装饰器，URL的一部分标记为<variable_name>就可以在
 def url_id(id):                   #URL中添加变量,标记的部分会作为关键字参数传递给函数
-    print(url_for('url_id',id = 'aaa')) #URL反转：根据视图函数名称得到URL
+    print(url_for('url_id',id='aaa')) #URL反转：根据视图函数名称得到URL
     return '这就是你的参数： %s' %id
 
 @app.route('/bilibili')
@@ -30,13 +30,28 @@ def redirect_blibli():
     # return redirect(url_for('login'))
     return redirect('https://www.bilibili.com') #重定向redirect，可用于需要登录才能访问的页面，if判断，没有登录的话返回登录页面
 
-@app.route('/login/<fyf_login>',methods=['GET','POST']) #第二个parameter形参是关键字参数，查看源码，传入methods请求方式的列表
-def web_login(fyf_login):
-    user = {
-        'username':'王麻子',
-        'age':18
-    }
-    return render_template('login.html',user=user)
+@app.route('/login',methods=['GET','POST']) #第二个parameter形参是关键字参数，查看源码，传入methods请求方式的列表
+def web_login():
+    if request.method == 'POST':
+        username = request.form.get("username")             #request对象的form属性get方法，获取表单input的元素，通过input label标签的name属性获取
+        password1 = request.form.get("password1")
+        password2 = request.form.get("password2")
+        email = request.form.get("email")
+        print(username)
+        print(password1)
+        print(password2)
+        print(email)
+        if not all([username,password1,password2,email]):   #built-in内置函数，call()，判断可迭代对象iterable，包含 0，空   ' '，None，False时返回False，其余为True
+            return '输入不完整'
+        return '注册成功'
+    else:                                       #request.method == 'GET'
+        return render_template('login.html')
+    
+    #user = {
+    #    'username':'王麻子',
+    #    'age':18
+    #}
+    #return render_template('login.html',user=user)
     #if fyf_login == '1':
     #    return render_template('login.html',user=user)
     #else:
