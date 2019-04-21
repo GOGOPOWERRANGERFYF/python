@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,redirect
+from flask import Flask,render_template,url_for,redirect,request
 
 app = Flask(__name__)
 
@@ -30,16 +30,17 @@ def redirect_blibli():
     # return redirect(url_for('login'))
     return redirect('https://www.bilibili.com') #重定向redirect，可用于需要登录才能访问的页面，if判断，没有登录的话返回登录页面
 
-@app.route('/login/<fyf_login>')
+@app.route('/login/<fyf_login>',methods=['GET','POST']) #第二个parameter形参是关键字参数，查看源码，传入methods请求方式的列表
 def web_login(fyf_login):
     user = {
         'username':'王麻子',
         'age':18
     }
-    if fyf_login == '1':
-        return render_template('login.html',user=user)
-    else:
-        return render_template('login.html')
+    return render_template('login.html',user=user)
+    #if fyf_login == '1':
+    #    return render_template('login.html',user=user)
+    #else:
+    #    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)

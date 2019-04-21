@@ -30,22 +30,23 @@
 #print(p1.age)
 #print(p1.__name__)
 
-dict = {
-    'id':123456789,
-    'name':'Li Lei',
-    'age': 16
-}
+#dict = {
+#    'id':123456789,
+#    'name':'Li Lei',
+#    'age': 16
+#}
+#
+#def person(**dict):
+#    return dict
+#
+#temp1 = person(dict=dict)
+#print(temp1)
+#print(temp1['dict'])
+#print('>>>>>>>>>>>>>>>>>>>')
+#temp2 = temp1['dict']
+#print(temp2)
+#print(temp2['id'])
 
-def person(**dict):
-    return dict
-
-temp1 = person(dict=dict)
-print(temp1)
-print(temp1['dict'])
-print('>>>>>>>>>>>>>>>>>>>')
-temp2 = temp1['dict']
-print(temp2)
-print(temp2['id'])
 #temp2 = person(**dict)
 #print(temp2['id'])
 
@@ -54,4 +55,15 @@ print(temp2['id'])
 #    print(person(dict=dict))#运行可看到两者的区别
 #else:
 #    print('nothing')
+
+#all() #built-in function内置函数，判定可迭代参数是否为True   除了 0，空，None ，false外都为True    注意：空tuple 空list也为True
+
+list1 = [1,2,False,4,5]
+print(all(list1))
+
+list2 = []
+tuple1 = ()
+
+print(all(list2))
+print(all(tuple1))
 
