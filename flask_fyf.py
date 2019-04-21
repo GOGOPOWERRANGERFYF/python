@@ -10,13 +10,15 @@ def index():
     #s = student
     list1 = ['fyf',22,True]
     list2 = [1,2,3,4,5,6,7,8,9]
+    list3 = ['a','b','c','d','e','f','g']
+    str1 = 'abcdefg'
     context = {                                   #定义一个字典
         'name' : '诸葛亮',                           #key-value键值对,key必须为string字符串
         'age' : 100,
         'profile' : '诸葛亮散文代表作有《出师表》《诫子书》等'
     }
     date = '上午 10:35'
-    return render_template('index.html',context=context,date=date,list1=list1,list2=list2)#**关键字参数，传入参数后自动封装成一个字典dictionary，*关键字参数，传入元组tuple，传入参数后前端直接调用就行了，框架已经帮处理好了，不用担心数据类型的问题I
+    return render_template('index.html',context=context,date=date,list1=list1,list2=list2,list3=list3,str1=str1)#**关键字参数，传入参数后自动封装成一个字典dictionary，*关键字参数，传入元组tuple，传入参数后前端直接调用就行了，框架已经帮处理好了，不用担心数据类型的问题I
 
 @app.route('/article/<id>')       #带参数的装饰器，URL的一部分标记为<variable_name>就可以在
 def url_id(id):                   #URL中添加变量,标记的部分会作为关键字参数传递给函数
@@ -41,4 +43,7 @@ def web_login(fyf_login):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
+
+
+
 
