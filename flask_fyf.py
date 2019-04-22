@@ -80,7 +80,13 @@ def web_login():
     #else:
     #    return render_template('login.html')
 
+#@app.route('/navigation')
+#def navigation():
+#    return render_template('navigation.html')
 
+@app.route('/extends')    #base.html继承了navigation.html
+def extends_index():
+    return render_template('base.html')
 
 
 if __name__ == '__main__':
