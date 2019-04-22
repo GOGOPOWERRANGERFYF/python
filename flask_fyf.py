@@ -84,6 +84,10 @@ def web_login():
 #def navigation():
 #    return render_template('navigation.html')
 
+@app.route('/include')
+def navigation():
+    return render_template('include.html')
+
 @app.route('/extends')    #base.html继承了navigation.html
 def extends_index():
     return render_template('base.html')
