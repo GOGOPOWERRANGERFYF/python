@@ -79,7 +79,7 @@ def navigation():
 
 @app.route('/extends')    #base.html继承了navigation.html
 def extends_index():
-    return render_template('base.html')
+    return render_template('extends.html')
 
 
 if __name__ == '__main__':
