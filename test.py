@@ -58,12 +58,24 @@
 
 #all() #built-in function内置函数，判定可迭代参数是否为True   除了 0，空，None ，false外都为True    注意：空tuple 空list也为True
 
-list1 = [1,2,False,4,5]
-print(all(list1))
+#list1 = [1,2,False,4,5]
+#print(all(list1))
+#
+#list2 = []
+#tuple1 = ()
+#
+#print(all(list2))
+#print(all(tuple1))
 
-list2 = []
-tuple1 = ()
+#>>>>>>>>>>>>>>>>>>>对call函数的理解>>>>>>>>>
+# if x       x为非 0  (‘ ‘  空)   None  False
+x = 1
 
-print(all(list2))
-print(all(tuple1))
+def a():
+    if not x:           #not x作为条件,x表示    为 0   '  ' 空  None  False    
+        print('flase')
+    else:
+        print('true')
 
+a()
+#>>>>>>>>>>>>>>>>>>>对call函数的理解>>>>>>>>>

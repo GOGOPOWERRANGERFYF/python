@@ -3,8 +3,11 @@ from flask import Flask,render_template,url_for,redirect,request,flash
 app = Flask(__name__)
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
 
+'''
+URL   '/'        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+'''
 @app.route('/')  #带参数的装饰器
-def index():
+def index():      #视图函数views
     #class student(object):   #class类继承object有更多高级特性，不继承则只有两三个高级特性
     #    name = 'sss'
     #    age = 18
@@ -21,16 +24,30 @@ def index():
     date = '上午 10:35'
     return render_template('index.html',context=context,date=date,list1=list1,list2=list2,list3=list3,str1=str1)#**关键字参数，传入参数后自动封装成一个字典dictionary，*关键字参数，传入元组tuple，传入参数后前端直接调用就行了，框架已经帮处理好了，不用担心数据类型的问题I
 
+
+
+'''
+URL   '/article/<id>'     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+'''
 @app.route('/article/<id>')       #带参数的装饰器，URL的一部分标记为<variable_name>就可以在
 def url_id(id):                   #URL中添加变量,标记的部分会作为关键字参数传递给函数
     print(url_for('url_id',id='aaa')) #URL反转：根据视图函数名称得到URL
     return '这就是你的参数： %s' %id
 
+
+
+'''
+URL    '/bilibili'    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+'''
 @app.route('/bilibili')
 def redirect_blibli():
     # return redirect(url_for('login'))
     return redirect('https://www.bilibili.com') #重定向redirect，可用于需要登录才能访问的页面，if判断，没有登录的话返回登录页面
 
+
+'''
+URL    '/login'     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+'''
 @app.route('/login',methods=['GET','POST']) #第二个parameter形参是关键字参数，查看源码，传入methods请求方式的列表
 def web_login():
     if request.method == 'POST':
@@ -62,6 +79,9 @@ def web_login():
     #    return render_template('login.html',user=user)
     #else:
     #    return render_template('login.html')
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
