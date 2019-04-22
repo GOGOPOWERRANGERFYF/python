@@ -59,7 +59,6 @@ def web_login():
             return render_template('login.html')
     else:                                       #request.method == 'GET'
         return render_template('login.html')
-    
     #user = {
     #    'username':'王麻子',
     #    'age':18
