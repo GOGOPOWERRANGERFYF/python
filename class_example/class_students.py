@@ -34,10 +34,6 @@ class Students:   #类的名称开头字母大写，一般遵循驼峰命名，�
 #notinstance = A              #不加括号不执行__init__(self)   这个不是实例化 
 #print(notinstance.a)         #没有实例化call调用__init__(self)      注释调类中的   a='x'   后，运行会报错提示类 A没有属性attribute
 
-class Str():
-    def str_a(self,a):
-        return str(a)
-
 
 
 
