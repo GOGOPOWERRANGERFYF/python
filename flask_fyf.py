@@ -1,5 +1,6 @@
 from flask import Flask,render_template,url_for,redirect,request,flash
 from flask_wtf import FlaskForm    #从模块moudle中导入(所谓模块就是flask_wtf.py啦)FlaskForm类
+from wtforms import StringField,PasswordField,SubmitField  #导入wtforms组件（moudle）  支持多个web框架，主要用于用户请求数据进行验证 ，Field字段
 
 app = Flask(__name__)
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
@@ -81,6 +82,17 @@ def navigation():
 @app.route('/extends')    #base.html继承了navigation.html
 def extends_index():
     return render_template('extends.html')
+
+class RegisterForm(FlaskForm):             #自定义一个表单类，继承(inherit)  FlaskForm类
+    username = StringField('用户名:')       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
+    password1 = PasswordField('密码：')
+    password2 = PasswordField('确认密码：')
+    submit = SubmitField('注册')
+
+@app.route('/form',methods=['GET','POST'])
+def register_web_form():
+    form = RegisterForm()                          #实例化对象 form
+    return render_template('form.html',form=form)
 
 
 if __name__ == '__main__':
