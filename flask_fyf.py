@@ -85,7 +85,7 @@ def extends_index():
     return render_template('extends.html')
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-class RegisterForm(FlaskForm):             #自定义一个表单类，继承(inherit)  FlaskForm类
+class RegisterForm(FlaskForm):             #自定义一个表单类，继承(inherit)  FlaskForm类   相当于把FlaskForm类的定义代码复制进RegisterForm类中去，查看FlaskForm类源码是有构建函数__init__(self)的
     username = StringField('用户名:')       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
     password1 = PasswordField('密码：')
     password2 = PasswordField('确认密码：')
@@ -93,7 +93,7 @@ class RegisterForm(FlaskForm):             #自定义一个表单类，继承(in
 
 @app.route('/form',methods=['GET','POST'])
 def register_web_form():
-    form = RegisterForm()                          #实例化对象 form，实例化object 要加（），加（） 才会call调用__init__( )    不加括号只是类对象，不是实例化instance
+    form = RegisterForm()                          #实例化对象 form，实例化object 要加（），加（） 才会call调用__init__( )    不加括号只是类对象，不是实例化instance，看FlaskForm的源码可知必须实例化，否则不会执行FlaskForm类的__init__(self)函数
     return render_template('form.html',form=form)
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
