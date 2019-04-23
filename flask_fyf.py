@@ -93,7 +93,7 @@ class RegisterForm(FlaskForm):             #自定义一个表单类，继承(in
 
 @app.route('/form',methods=['GET','POST'])
 def register_web_form():
-    form = RegisterForm()                          #实例化对象 form
+    form = RegisterForm()                          #实例化对象 form，实例化object 要加（），加（） 才会call调用__init__( )    不加括号只是类对象，不是实例化instance
     return render_template('form.html',form=form)
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
