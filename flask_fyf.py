@@ -75,6 +75,7 @@ def web_login():
 #def navigation():
 #    return render_template('navigation.html')
 
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 @app.route('/include')     #导入引用页面
 def navigation():
     return render_template('include.html')
@@ -83,6 +84,7 @@ def navigation():
 def extends_index():
     return render_template('extends.html')
 
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 class RegisterForm(FlaskForm):             #自定义一个表单类，继承(inherit)  FlaskForm类
     username = StringField('用户名:')       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
     password1 = PasswordField('密码：')
@@ -94,7 +96,7 @@ def register_web_form():
     form = RegisterForm()                          #实例化对象 form
     return render_template('form.html',form=form)
 
-
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
 
