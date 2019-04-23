@@ -6,7 +6,7 @@ class类的变量variable和函数function   (blueprint蓝图)
 object对象的属性attribute和方法method
 '''
 # int   float   string  boolean这些数据类型并不能表示一个学生，因此自定义一个学生数据类型，也就类class
-class Students:
+class Students:   #类的名称开头字母大写，一般遵循驼峰命名，只是约定俗成的规定，并非强制性，驼峰命名比如：MyName
     #初始化函数function
     def __init__(self,name,age,score):   #self参数传入对象名，name，age，score也在实例化时传入
         self.name = name              #比如student1.name = name = 'fyf'

@@ -1,4 +1,5 @@
 from flask import Flask,render_template,url_for,redirect,request,flash
+from flask_wtf import FlaskForm    #从模块moudle中导入(所谓模块就是flask_wtf.py啦)FlaskForm类
 
 app = Flask(__name__)
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
