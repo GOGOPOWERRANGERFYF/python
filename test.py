@@ -80,9 +80,9 @@
 #a()
 #>>>>>>>>>>>>>>>>>>>对call函数的理解>>>>>>>>>
 
+#from wtforms import StringField
+#
+#u = StringField('fyf')
+#print(dir(u))
 
 
-from wtforms import StringField
-
-u = StringField('fyf')
-print(dir(u))

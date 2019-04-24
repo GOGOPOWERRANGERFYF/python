@@ -103,7 +103,8 @@ def register_web_form():
     return render_template('form.html',form=form)
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-print(__name__)   #该模块被其它模块导入时，__name__='flask_fyf'，在当前模块__name__ = '__main__'
+#print(app.import_name)
+#print(__name__)   #该模块被其它模块导入时，__name__='flask_fyf'，在当前模块__name__ = '__main__'
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
 
