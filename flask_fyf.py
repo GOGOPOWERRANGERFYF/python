@@ -1,6 +1,10 @@
 from flask import Flask,render_template,url_for,redirect,request,flash
-from flask_wtf import FlaskForm    #从模块moudle中导入(所谓模块就是flask_wtf.py啦)FlaskForm类
-from wtforms import StringField,PasswordField,SubmitField  #导入wtforms组件（moudle）  支持多个web框架，主要用于用户请求数据进行验证 ，Field字段
+#如果__init__.py文件为空的话，必须要 import   flask_wtf.form.FlaskForm   这样导入import。但__init__.py不为空，查看源码后，采用下面的导入方式
+from flask_wtf import FlaskForm    #从flask_wtf组件(包package)中导入form.py模块(module)的FlaskForm类
+from wtforms import StringField,PasswordField,SubmitField  #从wtforms组件(包package) 中导入 支持多个web框架，主要用于用户请求数据进行验证 ，Field字段
+from wtforms.validators import DataRequired,EqualTo,Email  #从wtforms包(package)的validators模块(module)   导入import    DataRequired类(class)等
+#从wtforms包的__init__.py文件可知，已经初始化导入了validator模块，所以是可用   import wtforms.DataRequired这样导入的，但导入多个类没有上面的方式方便
+#主要要看__init__.py文件，如果不为空的话
 
 app = Flask(__name__)
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
@@ -97,6 +101,7 @@ def register_web_form():
     return render_template('form.html',form=form)
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+print(__name__)   #该模块被其它模块导入时，__name__='flask_fyf'，在当前模块__name__ = '__main__'
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
 

@@ -69,13 +69,20 @@
 
 #>>>>>>>>>>>>>>>>>>>对call函数的理解>>>>>>>>>
 # if x       x为非 0  (‘ ‘  空)   None  False
-x = 1
-
-def a():
-    if not x:           #not x作为条件,x表示    为 0   '  ' 空  None  False    
-        print('flase')
-    else:
-        print('true')
-
-a()
+#x = 1
+#
+#def a():
+#    if not x:           #not x作为条件,x表示    为 0   '  ' 空  None  False    
+#        print('flase')
+#    else:
+#        print('true')
+#
+#a()
 #>>>>>>>>>>>>>>>>>>>对call函数的理解>>>>>>>>>
+
+
+
+from wtforms import StringField
+
+u = StringField('fyf')
+print(dir(u))
