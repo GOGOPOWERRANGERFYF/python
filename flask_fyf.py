@@ -4,7 +4,8 @@ from flask_wtf import FlaskForm    #从flask_wtf组件(包package)中导入form.
 from wtforms import StringField,PasswordField,SubmitField  #从wtforms组件(包package) 中导入 支持多个web框架，主要用于用户请求数据进行验证 ，Field字段
 from wtforms.validators import DataRequired,EqualTo,Email  #从wtforms包(package)的validators模块(module)   导入import    DataRequired类(class)等
 #从wtforms包的__init__.py文件可知，已经初始化导入了validator模块，所以是可用   import wtforms.DataRequired这样导入的，但导入多个类没有上面的方式方便
-#主要要看__init__.py文件，如果不为空的话
+#主要要看__init__.py文件，如果不为空的话 
+#__init__.py为空的话，import  package.(subpackage如果有).module.class(or variable,function)    或者   from   import也可以，总而言之就是向绝对路径的概念
 
 app = Flask(__name__)
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
