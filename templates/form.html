@@ -7,7 +7,8 @@
     <title>form</title>
 </head>
 <body>
-    <form method="post">
+    <form method="POST">
+    {{ form.csrf_token() }}  <!csrf cross-site request forgery 跨站请求伪装,该函数防止csrf攻击>
     {{ form.username.label }}{{ form.username }}
     {{ form.password1.label }}{{form.password1}}
     {{ form.password2.label }}{{form.password2}}
