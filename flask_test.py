@@ -32,5 +32,3 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0')
     #如果有用户请求到来，则执行app的__call__方法
     #app.__call__
-
-
