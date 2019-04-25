@@ -7,7 +7,6 @@ from wtforms.validators import DataRequired,EqualTo,Email  #从wtforms包(packag
 #重点：主要要看__init__.py文件（如果不为空的话）。导入方式很多种，无法一一列举，具体情况具体分析，看源码，看__init__.py文件 
 #__init__.py为空的话，import  package.(subpackage如果有).module.class(or variable,function)    或者   from   import也可以，总而言之就是像绝对路径的概念
 
-
 app = Flask(__name__)
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
 
