@@ -12,7 +12,11 @@
     {{ form.username.label }}{{ form.username }}
     {{ form.password1.label }}{{form.password1}}
     {{ form.password2.label }}{{form.password2}}
+    {{ form.email.label }}{{form.email}}
     {{ form.submit }}
+    {% for message in get_flashed_messages() %}
+    {{message}}
+    {% endfor %}
 
     </form>
     

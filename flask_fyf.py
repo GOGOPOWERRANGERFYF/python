@@ -91,9 +91,10 @@ def extends_index():
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 class RegisterForm(FlaskForm):             #自定义一个表单类，继承(inherit)  FlaskForm类   相当于把FlaskForm类的定义代码复制进RegisterForm类中去，查看FlaskForm类源码是有构建函数__init__(self)的
-    username = StringField('用户名:',validators=[DataRequired(message='没有输入用户名')])       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
+    username = StringField('用户名：',validators=[DataRequired(message='没有输入用户名')])       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
     password1 = PasswordField('密码：',validators=[DataRequired(message='没有输入密码')])
     password2 = PasswordField('确认密码：',validators=[DataRequired(message='请输入确认密码'),EqualTo('password1',message='两次输入密码不同')])  #查看源码可知EqualTo的fieldname参数为字符串string
+    email = StringField('邮箱：',validators=[DataRequired(message='请输入邮箱'),Email(message='邮箱格式不正确')])
     submit = SubmitField('注册')
 
 @app.route('/form',methods=['GET','POST'])
@@ -103,11 +104,15 @@ def register_web_form():
         username = request.form.get('username')     #request表单请求接收到的字段field传入对象username
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        email = request.form.get('email')
         if registerform.validate_on_submit():
-            return 'success'
+            print(username)
+            print(password1)
+            print(password2)
+            print(email)
+            flash('注册成功')
         else:
-            return 'XXX'
-                                  
+            flash('注册成功')
     return render_template('form.html',form=registerform)
     
 
