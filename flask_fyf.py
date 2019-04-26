@@ -2,12 +2,12 @@ from flask import Flask,render_template,url_for,redirect,request,flash
 #如果__init__.py文件为空的话，必须要 import   flask_wtf.form.FlaskForm或者from    flask_wtf.form   import    FlaskForm 这样导入import。但__init__.py不为空，查看源码后，采用下面的导入方式
 from flask_wtf import FlaskForm    #从flask_wtf组件(包package)中导入form.py模块(module)的FlaskForm类
 from wtforms import StringField,PasswordField,SubmitField  #从wtforms组件(包package) 中导入 支持多个web框架，主要用于用户请求数据进行验证 ，Field字段
-from wtforms.validators import DataRequired,EqualTo,Email  #从wtforms包(package)的validators模块(module)   导入import    DataRequired类(class)等
+from wtforms.validators import EqualTo,Email,DataRequired,Length  #从wtforms包(package)的validators模块(module)   导入import    DataRequired类(class)等
 #从wtforms包的__init__.py文件可知，已经初始化导入了validator模块，所以是可用   import wtforms.DataRequired这样导入的，但导入多个类没有上面的方式方便
 #重点：主要要看__init__.py文件（如果不为空的话）。导入方式很多种，无法一一列举，具体情况具体分析，看源码，看__init__.py文件 
 #__init__.py为空的话，import  package.(subpackage如果有).module.class(or variable,function)    或者   from   import也可以，总而言之就是像绝对路径的概念
 
-app = Flask(__name__)
+app = Flask(__name__)   #实例化Flask类，传入模块Moudle名参数，__name__是模块的built-in属性
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
 
 #URL   '/'        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -91,10 +91,10 @@ def extends_index():
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 class RegisterForm(FlaskForm):             #自定义一个表单类，继承(inherit)  FlaskForm类   相当于把FlaskForm类的定义代码复制进RegisterForm类中去，查看FlaskForm类源码是有构建函数__init__(self)的
-    username = StringField('用户名：',validators=[DataRequired(message='没有输入用户名')])       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
-    password1 = PasswordField('密码：',validators=[DataRequired(message='没有输入密码')])
-    password2 = PasswordField('确认密码：',validators=[DataRequired(message='请输入确认密码'),EqualTo('password1',message='两次输入密码不同')])  #查看源码可知EqualTo的fieldname参数为字符串string
-    email = StringField('邮箱：',validators=[DataRequired(message='请输入邮箱'),Email(message='邮箱格式不正确')])
+    username = StringField('用户名：',validators=[DataRequired(),Length(min=3,max=20,message='大于三个字符小于二十个字符')])       #实例化username 对象(object) ，查看class StringField源码可知第一个位置parament参数为label，以下同理  
+    password1 = PasswordField('密码：',validators=[DataRequired()])
+    password2 = PasswordField('确认密码：',validators=[DataRequired(),EqualTo('password1',message='两次输入密码不同')])  #查看源码可知EqualTo的fieldname参数为字符串string
+    email = StringField('邮箱：',validators=[DataRequired(),Email(message='邮箱格式不正确')])
     submit = SubmitField('注册')
 
 @app.route('/form',methods=['GET','POST'])
@@ -110,9 +110,8 @@ def register_web_form():
             print(password1)
             print(password2)
             print(email)
-            flash('注册成功')
-        else:
-            flash('注册成功')
+            #flash('注册成功')
+            return '注册成功'
     return render_template('form.html',form=registerform)
     
 

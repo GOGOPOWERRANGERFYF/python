@@ -10,12 +10,27 @@
     <form method="POST">
     {{ form.csrf_token() }}  <!csrf cross-site request forgery 跨站请求伪装,该函数防止csrf攻击>
     {{ form.username.label }}{{ form.username }}
-    {{ form.password1.label }}{{form.password1}}
+    <ul>   <!unordered list 无序列表>
+    {% for error in form.username.errors %}
+    <li style="color:crimson">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    {{ form.password1.label }}{{form.password1}}<br>
     {{ form.password2.label }}{{form.password2}}
+    <ul>   <!unordered list 无序列表>
+    {% for error in form.password2.errors %}
+    <li style="color:crimson">{{ error }}</li>
+    {% endfor %}
+    </ul>
     {{ form.email.label }}{{form.email}}
-    {{ form.submit }}
+    <ul>   <!unordered list 无序列表>
+    {% for error in form.email.errors %}
+    <li style="color:crimson">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    {{ form.submit }}<br>
     {% for message in get_flashed_messages() %}
-    {{message}}
+    {{message}}<br>
     {% endfor %}
 
     </form>
