@@ -9,7 +9,7 @@
 <body>
     <form method="POST">
     {{ form.csrf_token() }}  <!csrf cross-site request forgery 跨站请求伪装,该函数防止csrf攻击>
-    {{ form.username.label }}{{ form.username }}
+    {{ form.username.label }}{{ form.username }}   <!禁用标准required提示添加(required=False)>
     <ul>   <!unordered list 无序列表>
     {% for error in form.username.errors %}
     <li style="color:crimson">{{ error }}</li>

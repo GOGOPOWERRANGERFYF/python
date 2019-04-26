@@ -6,9 +6,15 @@ from wtforms.validators import EqualTo,Email,DataRequired,Length  #从wtforms包
 #从wtforms包的__init__.py文件可知，已经初始化导入了validator模块，所以是可用   import wtforms.DataRequired这样导入的，但导入多个类没有上面的方式方便
 #重点：主要要看__init__.py文件（如果不为空的话）。导入方式很多种，无法一一列举，具体情况具体分析，看源码，看__init__.py文件 
 #__init__.py为空的话，import  package.(subpackage如果有).module.class(or variable,function)    或者   from   import也可以，总而言之就是像绝对路径的概念
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)   #实例化Flask类，传入模块Moudle名参数，__name__是模块的built-in属性
-app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密
+app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密混淆
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123456@localhost/mydatabase' #个人理解,这个类的属性config是个字典dictionary，没看过源码，不知道对不对
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False   #这个以后的框架版本中会清除，开启会降低性能
+
+db =SQLAlchemy(app)   #db对象object的创建要在app.config后，先导入参数后创建对象
 
 #URL   '/'        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 @app.route('/')  #带参数的装饰器
