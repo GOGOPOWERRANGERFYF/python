@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False   #这个以后的框架版
 
 db = SQLAlchemy(app)   #db对象object的创建要在app.config后，先导入参数后创建对象
 
-class Role(db.Model):   #查看源码可知Model为对象db的一个方法（函数function），类role继承SQLAlchemy类的Model方法
+class Role(db.Model):   #db.Model是meta class元类，
     #定义表名
     __tablename__ = 'roles'   #暂时理解为继承自db.Model函数的特殊变量？目前还不能理解，暂时这样吧`````
 
