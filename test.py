@@ -91,11 +91,13 @@ from class_example.subpackage import testmoudle
 
 t = testmoudle.test_package()
 t
-#class A(test_class):
-#    name2='class A'
-#
-#b = A()
-#print(b.name)
-#print(b.name2)
+
+
+class A(testmoudle.test_class):
+    name2='class A'
+
+b = A()
+print(b.name)
+print(b.name2)
 
 print('OK')
