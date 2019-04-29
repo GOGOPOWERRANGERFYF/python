@@ -86,3 +86,17 @@
 #print(dir(u))
 
 
+from class_example import subpackage 
+#from class_example.subpackage.testmoudle import test_class  #经实验，import不能跨两级目录
+
+#t = test_package
+#t()
+
+#class A(test_class):
+#    name2='class A'
+#
+#b = A()
+#print(b.name)
+#print(b.name2)
+
+print('OK')
