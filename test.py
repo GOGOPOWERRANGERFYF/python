@@ -103,24 +103,24 @@
 #print('OK')
 
 
-class Students():
-    #构建函数
-    def __init__(self,name,age,score):   #self实例变量，python解释器会自动传入实例名参数，类中的函数定义与普通函数的区别，加入self实例变量
-        self.name=name
-        self.age=age
-        self.__score=score    #变量名前加两个下划线，外部不能直接调用，相当与私有变量，python并没有真正意义上的私有变量,，具体看廖雪峰官方网站，太麻烦懒得写了，简单来说是python解释器解释是改变了该变量名
-
-    def get_name(self):
-        return self.name    #其实外部也可以self,name直接获取该属性，也可以外部直接修改self,name='xxx'
-
-    def get_score(self):
-        return self.__score  #“私有变量”，外部不能直接调用，可通过这个类class的方法method（本质是在类内定义的函数function）调用
-
-    def set_score(self,score):
-        if 0 <= score <= 100:
-            self.__score=score     #python解释器会把它解释成_Students__score变量，不同版本不一定相同，只需要知道有这么回事就行了，不要使用，所以外部self.__score=11相当于给对象增加了一个属性__score，类中定义的__score没影响
-        else:
-            raise ValueError('ValueError')
+#class Students():
+#    #构建函数
+#    def __init__(self,name,age,score):   #self实例变量，python解释器会自动传入实例名参数，类中的函数定义与普通函数的区别，加入self实例变量
+#        self.name=name
+#        self.age=age
+#        self.__score=score    #变量名前加两个下划线，外部不能直接调用，相当与私有变量，python并没有真正意义上的私有变量,，具体看廖雪峰官方网站，太麻烦懒得写了，简单来说是python解释器解释是改变了该变量名
+#
+#    def get_name(self):
+#        return self.name    #其实外部也可以self,name直接获取该属性，也可以外部直接修改self,name='xxx'
+#
+#    def get_score(self):
+#        return self.__score  #“私有变量”，外部不能直接调用，可通过这个类class的方法method（本质是在类内定义的函数function）调用
+#
+#    def set_score(self,score):
+#        if 0 <= score <= 100:
+#            self.__score=score     #python解释器会把它解释成_Students__score变量，不同版本不一定相同，只需要知道有这么回事就行了，不要使用，所以外部self.__score=11相当于给对象增加了一个属性__score，类中定义的__score没影响
+#        else:
+#            raise ValueError('ValueError')
 
 #std1=Students('fyf',18,98)
 #print(std1.name)
@@ -134,9 +134,56 @@ class Students():
 #print(std1.get_score())
 
 
+#定义class类就是定义一种数据类型，Animal和   list   string一样都是数据类型
+#class Animal():  #基类，父类   base class    这叫做继承
+#    def run(self):
+#        print('Animal is running...')
+#
+#class Dog(Animal): #继承基类Animal 
+#    pass
+#
+#class Cat(Animal):
+#    pass
+#
+#
+#dog1=Dog()
+#cat1=Cat()
+#
+#print(dog1.run)
+#print(cat1.run)
+#    
+#dog1.run()
+#cat1.run()
+
+#class Animal():  #基类，父类   base class
+#    def run(self):
+#        print('Animal is running...')
+#
+#class Dog(Animal): #继承基类Animal 
+#    def run(self):  #subclass子类的run()会覆盖父类base class的run()方法   这叫做多态
+#        print('Dog is running...')
+#
+#class Cat(Animal):
+#    def run(self):
+#        print('Cat is running...')
+#
+#dog1=Dog()
+#cat1=Cat()
+#
+#dog1.run()
+#cat1.run()
 
 
+#def add_candle(f):
+#    def insert_candle():
+#        return f() + ' insert candle'
+#    return insert_candle
+#
+#
+#@add_candle
+#def make_cake():
+#    return 'cake'
+#
+#x = make_cake()
+#print(x)
 
-
-    
-   
