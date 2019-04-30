@@ -86,18 +86,57 @@
 #print(dir(u))
 
 
-from class_example.subpackage import testmoudle
-#from class_example.subpackage.testmoudle import test_class  #经实验，import不能跨两级目录
+#from class_example.subpackage import testmoudle
+##from class_example.subpackage.testmoudle import test_class  #经实验，import不能跨两级目录
+#
+#t = testmoudle.test_package()
+#t
+#
+#
+#class A(testmoudle.test_class):
+#    name2='class A'
+#
+#b = A()
+#print(b.name)
+#print(b.name2)
+#
+#print('OK')
 
-t = testmoudle.test_package()
-t
+
+class Students():
+    #构建函数
+    def __init__(self,name,age,score):   #self实例变量，python解释器会自动传入实例名参数，类中的函数定义与普通函数的区别，加入self实例变量
+        self.name=name
+        self.age=age
+        self.__score=score    #变量名前加两个下划线，外部不能直接调用，相当与私有变量，python并没有真正意义上的私有变量,，具体看廖雪峰官方网站，太麻烦懒得写了，简单来说是python解释器解释是改变了该变量名
+
+    def get_name(self):
+        return self.name    #其实外部也可以self,name直接获取该属性，也可以外部直接修改self,name='xxx'
+
+    def get_score(self):
+        return self.__score  #“私有变量”，外部不能直接调用，可通过这个类class的方法method（本质是在类内定义的函数function）调用
+
+    def set_score(self,score):
+        if 0 <= score <= 100:
+            self.__score=score     #python解释器会把它解释成_Students__score变量，不同版本不一定相同，只需要知道有这么回事就行了，不要使用，所以外部self.__score=11相当于给对象增加了一个属性__score，类中定义的__score没影响
+        else:
+            raise ValueError('ValueError')
+
+#std1=Students('fyf',18,98)
+#print(std1.name)
+#print(std1.get_score())
+#
+#std1.name='fff'
+#print(std1.name)
+#
+##std1.set_score(88)
+#std1.set_score('fyf')
+#print(std1.get_score())
 
 
-class A(testmoudle.test_class):
-    name2='class A'
 
-b = A()
-print(b.name)
-print(b.name2)
 
-print('OK')
+
+
+    
+   
