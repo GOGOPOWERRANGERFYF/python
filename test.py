@@ -187,3 +187,51 @@
 #x = make_cake()
 #print(x)
 
+
+#slots  投放
+#class Students():
+#    __slots__=('name','age')     #限制类只能绑定name，age属性，但子类不受此限制，除非子类中也定义特殊属性__slots__，则即可继承父类base class的__slot__，又可加上自己定义的__slots__
+#    def __init__(self,name,age):   #self实例变量
+#        self.name=name
+#        self.age=age
+#
+#class MiddleSchoolStudents(Students):
+#    __slots__=('score')
+
+
+class screen(object):
+    #def __init__(self,width,height):
+    #    self.__width=width            #__width相当于私有变量，private，外部不能直接调用call 
+    #    self.__height=height
+    
+    @property                         #@property装饰器，把对象的方法装饰成属性，外部直接像调用属性一样调用即可，不用call（就是不用加 ( )）
+    def width(self):
+        return self.__width
+
+    @width.setter                     
+    def width(self,value):
+        self.__width = value
+
+    @property
+    def height(self):
+        return self.__height
+    
+    @height.setter
+    def height(self,value):
+        self.__height = value
+    
+    @property
+    def resolution(self):
+        self.__resolution = self.__width * self.__height
+        return self.__resolution
+
+
+
+
+
+
+
+
+
+
+
