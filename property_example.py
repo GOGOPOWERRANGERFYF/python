@@ -1,8 +1,8 @@
 '''
-@property 装饰器decorator   property是一个类class,函数function和类class都可以做装饰器
+@property 装饰器decorator   property是一个内置类built-in class,函数function和类class都可以做装饰器
 '''
 
-
+#用@property装饰器
 class screen(object):
     def __init__(self,width,height):
         self.__width=width   #__width相当于私有变量，private，外部不能直接调用call 
@@ -28,3 +28,29 @@ class screen(object):
     def resolution(self):
         self.__resolution = self.__width * self.__height
         return self.__resolution
+
+
+#直接用property类的例子
+class person(object):
+    def __init__(self,name):
+        self.name=name
+    
+    def get_name(self):
+        return self.name
+
+    def set_name(self,name):
+        self.name=name
+        return self.name
+
+    personname = property(get_name,set_name) #实例化property类，property数据类型，类包含属性和方法，oop面向对象编成的概念
+
+
+
+
+
+
+
+
+
+
+
