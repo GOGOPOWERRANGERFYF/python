@@ -225,8 +225,15 @@
 #        self.__resolution = self.__width * self.__height
 #        return self.__resolution
 
+#````````````````````````````````````````````````````
+class myclass(object):      #这两个定义类的方法是等价的
+    a = 1                   #类变量
+    b = 2
+    #def __init__(self,a):   
+    #    self.a=a            #实例变量
 
-
+fyfclass = type('myclass',(object,),{'a':1,'b':2}) #type是默认的metaclass元类  参考 https://blog.csdn.net/wwx890208/article/details/80644400    验证过程通过交互模式验证，在这里写太麻烦
+#``````````````````````````````````````````````````````````
 
 
 
