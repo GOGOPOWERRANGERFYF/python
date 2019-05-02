@@ -15,13 +15,18 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False   #这个以后的框架版
 
 db = SQLAlchemy(app)   #db对象object的创建要在app.config后，先导入参数后创建对象
 
-class Role(db.Model):   #db.Model是meta class元类，
+class Role(db.Model):   #db.Model看源码，db对象的Model方法返回的是一个类Model (Base class for SQLAlchemy declarative base model.)  基类for   SQLAlchemy声明库类型
     #定义表名
-    __tablename__ = 'roles'   #暂时理解为继承自db.Model函数的特殊变量？目前还不能理解，暂时这样吧`````
-
+    __tablename__ = 'roles'   #特殊属性,定义数据库表名          暂时理解为继承自db.Model函数的特殊变量？目前还不能理解，暂时这样吧`````
     #定义字段
-    #id = db.Column(db.Integer,primary_key=True)
-    id = db.Column(db.Integer,primary_key=True)
+    id = db.Column(db.Integer,primary_key=True)   #定义id数据类型
+    role = db.Column(db.String(8),unique=True)
+
+class User(db.Model):
+    __tablename__='users'
+    id = db.Column(db.Integer,primary_key=True)   #Column    Integer都是数据类型，都是类(自己推测的`````)
+    name = db.Column(db.String(16))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))   #ForeignKey外键
 
 #URL   '/'        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 @app.route('/')  #带参数的装饰器
