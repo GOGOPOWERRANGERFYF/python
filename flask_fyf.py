@@ -24,7 +24,7 @@ class Role(db.Model):   #db.Model看源码，db对象的Model方法返回的是�
     id = db.Column(db.Integer,primary_key=True)   #定义id数据类型，
     role = db.Column(db.String(8),unique=True)
 
-class User(db.Model):                     
+class User(db.Model):                    # 看源码继承的是 class Model(args, kwargs) ，所以user=User(name='fyf',role_id=1)
     __tablename__='users'                          #定义类变量
     id = db.Column(db.Integer,primary_key=True)   #Column    Integer都是数据类型，都是类(自己推测的`````)
     name = db.Column(db.String(16))
