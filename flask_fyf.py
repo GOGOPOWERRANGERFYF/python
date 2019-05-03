@@ -8,6 +8,7 @@ from wtforms.validators import EqualTo,Email,DataRequired,Length  #从wtforms包
 #__init__.py为空的话，import  package.(subpackage如果有).module.class(or variable,function)    或者   from   import也可以，总而言之就是像绝对路径的概念
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)   #实例化Flask类，传入模块Moudle名参数，__name__是模块的built-in属性
 app.secret_key = 'fyfsecretkey'   #传输某些数据需要加密，密钥，例如返回flash()闪现消息就需要加密混淆
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/fyf_database' #个人理解,这个类的属性config是个字典dictionary，没看过源码，不知道对不对
@@ -15,15 +16,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False   #这个以后的框架版
 
 db = SQLAlchemy(app)   #db对象object的创建要在app.config后，先导入参数后创建对象
 
+# ORM   Object   Relational   Mapping  对象关系映射    定义数据模型
 class Role(db.Model):   #db.Model看源码，db对象的Model方法返回的是一个类Model (Base class for SQLAlchemy declarative base model.)  基类for   SQLAlchemy声明库类型
     #定义表名
     __tablename__ = 'roles'   #特殊属性,定义数据库表名          暂时理解为继承自db.Model函数的特殊变量？目前还不能理解，暂时这样吧`````
     #定义字段
-    id = db.Column(db.Integer,primary_key=True)   #定义id数据类型
+    id = db.Column(db.Integer,primary_key=True)   #定义id数据类型，
     role = db.Column(db.String(8),unique=True)
 
-class User(db.Model):
-    __tablename__='users'
+class User(db.Model):                     
+    __tablename__='users'                          #定义类变量
     id = db.Column(db.Integer,primary_key=True)   #Column    Integer都是数据类型，都是类(自己推测的`````)
     name = db.Column(db.String(16))
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))   #ForeignKey外键
@@ -137,6 +139,11 @@ def register_web_form():
 #print(app.import_name)
 #print(__name__)   #该模块被其它模块导入时，__name__='flask_fyf'，在当前模块__name__ = '__main__'
 if __name__ == '__main__':
+    #删除表
+    db.drop_all()
+    #创建表
+    db.create_all()
+
     app.run(host='0.0.0.0',debug=True)
 
 
