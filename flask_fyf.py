@@ -30,6 +30,19 @@ class User(db.Model):                    # 看源码继承的是 class Model(arg
     name = db.Column(db.String(16))
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))   #ForeignKey外键
 
+'''
+user=User(name='fyf',role_id=1)
+
+db.session.add(user)  #增加
+db.session.commit()
+
+user.name='xxx'       #修改
+db.session.commit()
+
+db.session.delete(user)  #删除
+db.session.commit()
+'''
+
 #URL   '/'        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 @app.route('/')  #带参数的装饰器
 def index():      #视图函数views
@@ -140,9 +153,9 @@ def register_web_form():
 #print(__name__)   #该模块被其它模块导入时，__name__='flask_fyf'，在当前模块__name__ = '__main__'
 if __name__ == '__main__':
     #删除表
-    db.drop_all()
+    #db.drop_all()
     #创建表
-    db.create_all()
+    #db.create_all()
 
     app.run(host='0.0.0.0',debug=True)
 
