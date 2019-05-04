@@ -21,20 +21,29 @@ class Role(db.Model):   #db.Model看源码，db对象的Model方法返回的是�
     #定义表名
     __tablename__ = 'roles'   #特殊属性,定义数据库表名          暂时理解为继承自db.Model函数的特殊变量？目前还不能理解，暂时这样吧`````
     #定义字段
-    id = db.Column(db.Integer,primary_key=True)   #定义id数据类型，
+    id = db.Column(db.Integer,primary_key=True)   #定义id数据类型，column列   表中的一列字段field
     role = db.Column(db.String(8),unique=True)
+    
+    #关联数据库模型User，（back reference反向关联）反向关联role表（第一个参数给本身添加属性，第二个参数给User添加属性），只是数据关联，并不是写入表中
+    user = db.relationship('User',backref='role')
 
 class User(db.Model):                    # 看源码继承的是 class Model(args, kwargs) ，所以user=User(name='fyf',role_id=1)
     __tablename__='users'                          #定义类变量
-    id = db.Column(db.Integer,primary_key=True)   #Column    Integer都是数据类型，都是类(自己推测的`````)
+    id = db.Column(db.Integer,primary_key=True)   #Column    Integer都是数据类型，都是class类(自己推测的`````)
     name = db.Column(db.String(16))
+    password = db.Column(db.String(32))
+    email = db.Column(db.String(32),unique=True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))   #ForeignKey外键
 
 '''
-user=User(name='fyf',role_id=1)
+user=User(name='fyf',role_id=1)    #数据库模型的一个实例
 
 db.session.add(user)  #增加
 db.session.commit()
+
+role = Role(role='admin')   #一次增加多个
+role1 = Role(role='user')                                                    
+db.session.add([role,role1])   
 
 user.name='xxx'       #修改
 db.session.commit()
