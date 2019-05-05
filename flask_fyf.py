@@ -34,6 +34,16 @@ class User(db.Model):                    # 看源码继承的是 class Model(arg
     password = db.Column(db.String(32))
     email = db.Column(db.String(32),unique=True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))   #ForeignKey外键
+    
+    #下面两个内建特殊方法 __str__   __repr__   也是python内建函数str()   repr() 
+    # 作用：object对象的字符串显示    
+    #默认情况下，__str__ 等于__repr__ ，    当只定义__repr__时，__str__等于__repr__ ;     当之定义__str__时，两者不相等，通过交互命令行模式验证
+    #def __str__(self):    
+    #    return 'users: %d %s %s %s' %(self.id,self.name,self.email,self.password)
+    #作用：自定义User()对象的字符串显示       不自定义的话，默认的__repr__从父类base class继承，直至object类
+    def __repr__(self):    #python 内建built-in function函数       representation      repr(object)     object.__repr__( )     python内建的特殊方法    
+        return 'users: %d %s %s %s' %(self.id,self.name,self.email,self.password)
+
 
 '''
 user=User(name='fyf',role_id=1)    #数据库模型的一个实例
