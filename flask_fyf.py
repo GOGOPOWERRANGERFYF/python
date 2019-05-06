@@ -28,7 +28,7 @@ class Role(db.Model):   #db.Model看源码，db对象的Model方法返回的是�
     user = db.relationship('User',backref='role')
 
 class User(db.Model):                    # 看源码继承的是 class Model(args, kwargs) ，所以user=User(name='fyf',role_id=1)
-    __tablename__='users'                          #定义类变量
+    __tablename__='users'                          #定义类变量    类属性，__init__构建的是对象属性
     id = db.Column(db.Integer,primary_key=True)   #Column    Integer都是数据类型，都是class类(自己推测的`````)
     name = db.Column(db.String(16))
     password = db.Column(db.String(32))
@@ -37,8 +37,18 @@ class User(db.Model):                    # 看源码继承的是 class Model(arg
     
     '''
     u = User()  #transient声明一个实例变量,包含了所有实例
-    u.query.all()    #query.all  u对象object的捆绑方法bound method
+    u.query.all()    #query.all  u对象object的捆绑方法bound method    （猜测query也是一个类,数据类型,不一定正确啊，暂时这么理解）
     终端返回：[<User 1>, <User 2>, <User 3>]   #一个列表list，里面是User数据模型(类class)的对象,所以通过自定义python内建方法__repr__返回想要得到的字符串
+    
+    #查询过滤器    过滤后需执行才能显示可读的数据
+    u.query.filter_by(id=4)   #查询id=4的数据
+    u.query.filter(User.name=='lilei')   #查询
+    
+    #查询执行器    
+    u.query.get(2)     #查询id=2的数据
+    u.query.all()        #数据库查询
+    u.query.first()      #查询第一个数据
+    u.query.count()     #数据统计
     '''
 
     #下面两个内建特殊方法 __str__   __repr__   也是python内建函数str()   repr() 
