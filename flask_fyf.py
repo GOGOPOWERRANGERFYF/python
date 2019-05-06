@@ -36,7 +36,7 @@ class User(db.Model):                    # 看源码继承的是 class Model(arg
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))   #ForeignKey外键
     
     '''
-    u = User()  #transient声明一个实例变量
+    u = User()  #transient声明一个实例变量,包含了所有实例
     u.query.all()    #query.all  u对象object的捆绑方法bound method
     终端返回：[<User 1>, <User 2>, <User 3>]   #一个列表list，里面是User数据模型(类class)的对象,所以通过自定义python内建方法__repr__返回想要得到的字符串
     '''
