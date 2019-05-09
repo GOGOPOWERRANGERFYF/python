@@ -233,8 +233,8 @@
     #    self.a=a            #实例变量
 
 #动态定义一个类，终端中可以这么定义，这里貌似不行`````
-fyfclass = type('myclass',(object,),{'a':1,'b':2}) #type是默认的metaclass元类  参考 https://blog.csdn.net/wwx890208/article/details/80644400    验证过程通过交互模式验证，在这里写太麻烦
-fyfclass.a
+#fyfclass = type('myclass',(object,),{'a':1,'b':2}) #type是默认的metaclass元类  参考 https://blog.csdn.net/wwx890208/article/details/80644400    验证过程通过交互模式验证，在这里写太麻烦
+#fyfclass.a
 
 
 #class x():
