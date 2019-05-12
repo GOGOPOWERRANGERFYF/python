@@ -1,7 +1,6 @@
 '''
 decorator 装饰器,闭包函数的一种特例，内部函数调用外部函数的参数，该参数为函数
 '''
-
 '''
 # 1.
 def add_candle(cake):
@@ -15,7 +14,6 @@ def make_cake():
 f = add_candle(make_cake)
 print(f())
 '''
-
 '''
 # 2.
 def add_candle(cake):
@@ -51,7 +49,7 @@ print(make_cake())
 '''
 带参数的装饰器decorator
 '''
-
+'''
 #def cake_name(x): #装饰器外再套一层函数,x参数可以传入闭包函数内
 #    def add_candle(f):  
 #        def insert_candle():
@@ -80,6 +78,6 @@ def make_cake(x):
     return '被装饰函数接收到了带参数的装饰器的传入参数：%s' %x
 
 make_cake()
-
+'''
 
 
