@@ -225,7 +225,6 @@
 #        self.__resolution = self.__width * self.__height
 #        return self.__resolution
 
-````````````````````````````````````````````````````
 #class myclass(object):      #这两个定义类的方法是等价的
 #    a = 1                   #类变量
 #    b = 2
@@ -241,7 +240,12 @@
 #    a='fff'
 #    b=2
 
+class A(object):
+    x = 1
 
+a = A()
 
+print(a.x)
+print(getattr(a,'x'))
 
 
